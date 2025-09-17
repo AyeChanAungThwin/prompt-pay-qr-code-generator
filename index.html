@@ -1,0 +1,65 @@
+<!-- Created by Aye Chan Aung Thwin -->
+<html>
+    <header>
+        <title>PromptPay QR Code Generator</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+        <script defer src="js/index.js"></script>
+        <script defer src="js/prompt-pay.js"></script>
+    </header>
+    <body>
+        <div class="container">
+            <div class="left">
+                <!-- <h1>Thai PromptPay QR Code Generator</h1> -->
+            <!-- <p class="description">Enter a name, phone number and amount to generate a payment QR code</p> -->
+            
+                <div class="main">
+                    <div class="input-group">
+                        <label for="name">Name (Optional)</label>
+                        <input type="text" id="name" class="name" placeholder="Enter your name (optional)">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="phone">Phone Number (Must be connected with PromptPay)</label>
+                        <input type="text" id="phone" class="ph_no" placeholder="Enter phone number (e.g., 06XXXXXXXX)" 
+                               pattern="^(\+?[\d\s\-\(\)]{10,})$" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="amount">Amount (Optional)</label>
+                        <input type="text" id="amount" class="amount" placeholder="Enter amount (e.g., Leave Blank, 100, 50.75)">
+                    </div>
+                    
+                    <div class="img-container" id="qrContainer">
+                        <div class="img-placeholder">PromptPay QR Code will appear here</div>
+                    </div>
+                    
+                    <div class="buttons">
+                        <input type="button" value="Generate QR Code" onclick="_0x8ieumx2a9()">
+                        <input type="button" value="Download QR Code" class="download-btn" onclick="_0x7aeudbg86()" disabled id="downloadBtn">
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="instructions">
+                <h3>How to use:</h3>
+                <ul>
+                    <li>Make sure your phone number is connected to PromptPay! (I don't have access to check whether your number has connected to PromptPay!)</li>
+                    <li>This is the easiest way to generate the QR Code if you ever left your phone at home! You can generate and download it here on any devices!</li>
+                    <li>Do NOT use it if error occurred on Scanning with the banking app because the phone number is not connected with the PromptPay!</li>
+                    <li>I don't take responsible for any misuse!</li>
+                    <li>Enter your name.</li>
+                    <li>Enter a valid phone number. (e.g., 06XXXXXXXX or 09XXXXXXXX)</li>
+                    <li>Enter the amount in numbers. (e.g., Leave Blank or 100 or 50.25)</li>
+                    <li>Click "Generate QR Code" to create your QR.</li>
+                    <li>Download the QR code once it's generated.</li>
+                    <li>The QR code will combine both values for payment processing.</li>
+                    <li>We don't save your information! (Analyze the source code if you're concern!)</li>
+                    <li>Downloading is not available through Facebook App, use external browser!</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
