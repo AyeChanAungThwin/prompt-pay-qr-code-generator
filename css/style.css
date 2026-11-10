@@ -12,7 +12,6 @@
     min-height: 110vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 20px;
 }
         
@@ -28,6 +27,7 @@
 
 .container {
     width: 100%;
+    margin: auto 0; /* centers when the page fits; collapses to 0 when content is taller than the viewport, keeping the top reachable */
     overflow: hidden; /* Clearfix */
 }
 
@@ -223,13 +223,140 @@ input[type="button"]:active {
     .container {
         padding: 10px;
     }
-    
+
     .img-container {
         width: 180px;
         height: 180px;
     }
-    
+
     .buttons {
         flex-direction: column;
     }
+}
+
+/* ===== SLIP VERIFICATION ===== */
+.slip-verify {
+    clear: both;
+    margin: 10px 5px;
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.slip-verify h3 {
+    color: #4285f4;
+    margin-bottom: 10px;
+}
+
+.slip-verify p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+.drop-zone {
+    border: 2px dashed #bbb;
+    border-radius: 8px;
+    padding: 25px 15px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.drop-zone:hover,
+.drop-active {
+    border-color: #4285f4;
+    background-color: #f0f7ff;
+}
+
+.slip-token-link {
+    align-self: center;
+    font-size: 14px;
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.slip-token-link:hover {
+    text-decoration: underline;
+}
+
+.slip-preview-wrap {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.slip-preview-wrap img {
+    max-width: 100%;
+    max-height: 320px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.slip-result {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+.slip-pending {
+    color: #666;
+    font-style: italic;
+}
+
+.slip-success {
+    border-left-color: #25d366;
+    background-color: #eafff2;
+}
+
+.slip-fail,
+.slip-warn {
+    border-left-color: #ff4d4d;
+    background-color: #fff2f2;
+}
+
+.slip-decode-only {
+    border-left-color: #f5a623;
+    background-color: #fffaf0;
+}
+
+.slip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 4px 0;
+    border-bottom: 1px dashed #e5e5e5;
+    word-break: break-all;
+}
+
+.slip-row:last-child {
+    border-bottom: none;
+}
+
+.slip-label {
+    color: #777;
+    white-space: nowrap;
+}
+
+.slip-value {
+    color: #333;
+    text-align: right;
+}
+
+.slip-json {
+    margin: 10px 0 0;
+    padding: 10px;
+    max-height: 260px;
+    overflow: auto;
+    background-color: #2d2d2d;
+    color: #9fd18f;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-all;
 }

@@ -4,8 +4,10 @@
         <title>PromptPay QR Code Generator</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
         <script defer src="js/index.js"></script>
         <script defer src="js/prompt-pay.js"></script>
+        <script defer src="js/slip-verify.js"></script>
     </header>
     <body>
         <div class="container">
@@ -56,9 +58,42 @@
                     <li>Download the QR code once it's generated.</li>
                     <li>The QR code will combine both values for payment processing.</li>
                     <li>We don't save your information! (Analyze the source code if you're concern!)</li>
+                    <li>Slip verification sends the slip's QR payload to SlipVerify (api.nearbyshop.xyz) to verify against the bank network. It is not saved by this site!</li>
                     <li>Downloading is not available through Facebook App, use external browser!</li>
-                </ul>
             </div>
+            </div>
+
+            <div class="slip-verify">
+                <div class="instructions">
+                    <h3>Verify Payment Slip</h3>
+                    <p>Upload the payment slip image (the digital receipt with the mini QR code) to verify the payment. The slip's QR payload is sent to the SlipVerify API service for network verification.</p>
+                    <div class="input-group">
+                        <label for="slipFile">Payment Slip Image</label>
+                        <div id="slipDropZone" class="drop-zone">
+                            <span id="slipDropZoneText">Drop slip image here or click to choose</span>
+                            <input type="file" id="slipFile" accept="image/*" hidden>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="slipAmount">Expected Amount (Optional, THB)</label>
+                        <input type="text" id="slipAmount" placeholder="e.g., 2.00 (leave blank to skip amount check)">
+                    </div>
+                    <div class="input-group">
+                        <label for="slipToken">SlipVerify API Token (Optional)</label>
+                        <input type="text" id="slipToken" placeholder="Paste your token (Get one free from the SlipVerify Discord)">
+                    </div>
+                    <div class="buttons">
+                        <input type="button" value="Verify Slip" onclick="verifySlip()" id="verifySlipBtn" disabled>
+                        <a class="slip-token-link" href="https://discord.gg/VMr2pqukDX" target="_blank" rel="noopener noreferrer">Get free token (Discord)</a>
+                    </div>
+                    <div id="slipResult" class="slip-result" hidden>
+                        <div id="slipStatus"></div>
+                        <div id="slipInfo"></div>
+                    </div>
+                    <div id="slipPreviewWrap" class="slip-preview-wrap" hidden>
+                        <img id="slipPreview" alt="Uploaded slip preview">
+                    </div>
+                </div>
             </div>
         </div>
     </body>
